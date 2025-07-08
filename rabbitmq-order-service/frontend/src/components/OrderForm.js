@@ -10,11 +10,11 @@ const OrderForm = () => {
 
   const submitOrder = async () => {
     const payload = {
-      customer: form.customer,
+      customerName: form.customer,
       items: form.items.split(','),
-      total: parseFloat(form.total),
+      totalAmount: parseFloat(form.total),
     };
-    await axios.post('http://localhost:5000/api/order', payload);
+    await axios.post('http://localhost:5000/api/orders', payload);
     alert('Order placed!');
   };
 
