@@ -40,6 +40,12 @@ function generateNearbyPins([lng, lat], count = 5) {
 }
 
 const MapboxMap = ({ lat, lng }) => {
+  // If no Mapbox token is available, use fallback map
+  if (!MAPBOX_TOKEN) {
+    console.warn("Mapbox token not found, using fallback map component");
+    return <FallbackMap lat={lat} lng={lng} />;
+  }
+
   const mapContainer = useRef(null);
   const map = useRef(null);
   const markerRef = useRef(null);
