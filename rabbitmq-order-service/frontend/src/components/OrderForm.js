@@ -153,10 +153,7 @@ const OrderForm = () => {
         deliveryNotes: formData.deliveryNotes,
       };
 
-      const response = await axios.post(
-        "http://localhost:5000/api/orders",
-        payload,
-      );
+      const response = await axios.post("/api/orders", payload);
       setOrderResult(response.data);
       setShowSuccess(true);
 
