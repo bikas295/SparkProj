@@ -78,9 +78,7 @@ const OrderTracker = () => {
     }
 
     try {
-      const res = await axios.get(
-        `http://localhost:5000/api/orders/${orderId}/track`,
-      );
+      const res = await axios.get(`/api/orders/${orderId}/track`);
       setOrderData(res.data);
       setAutoRefresh(true);
       setError("");
