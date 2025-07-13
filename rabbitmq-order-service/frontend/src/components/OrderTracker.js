@@ -79,7 +79,16 @@ const OrderTracker = () => {
     }
 
     try {
-      const res = await axios.get(`/api/orders/${orderId}/track`);
+      let res;
+      try {
+        // Try real API first
+        res = await axios.get(`/api/orders/${orderId}/track`);
+      } catch (networkError) {
+        // Fallback to mock API if backend is not available
+        console.log("Backend not available, using mock API");
+        res = await mockAPI.trackOrder(orderId);
+      }
+
       setOrderData(res.data);
       setAutoRefresh(true);
       setError("");
