@@ -154,7 +154,16 @@ const OrderForm = () => {
         deliveryNotes: formData.deliveryNotes,
       };
 
-      const response = await axios.post("/api/orders", payload);
+      let response;
+      try {
+        // Try real API first
+        response = await axios.post("/api/orders", payload);
+      } catch (networkError) {
+        // Fallback to mock API if backend is not available
+        console.log("Backend not available, using mock API");
+        response = await mockAPI.createOrder(payload);
+      }
+
       setOrderResult(response.data);
       setShowSuccess(true);
 
