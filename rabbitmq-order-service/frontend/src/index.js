@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* TODO: Import and use ErrorBoundary and ThemeProvider to wrap <App />. */}
     <App />
   </React.StrictMode>
 );

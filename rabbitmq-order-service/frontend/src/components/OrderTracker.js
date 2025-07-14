@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import MapboxMap from './MapboxMap';
+import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@mui/lab';
 
 const OrderTracker = () => {
   const [orderId, setOrderId] = useState('');
